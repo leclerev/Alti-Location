@@ -14,7 +14,7 @@ class Advert
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id_advert;
+    private $id;
 
     /**
      * @ORM\Column(type="integer")
@@ -56,9 +56,9 @@ class Advert
      */
     private $img_path;
 
-    public function getId_advert(): ?int
+    public function getId(): ?int
     {
-        return $this->id_advert;
+        return $this->id;
     }
 
     public function getIdProperty(): ?int

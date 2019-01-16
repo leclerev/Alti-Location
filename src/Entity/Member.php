@@ -14,7 +14,7 @@ class Member
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id_member;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -41,9 +41,9 @@ class Member
      */
     private $password;
 
-    public function getId_member(): ?int
+    public function getId(): ?int
     {
-        return $this->id_member;
+        return $this->id;
     }
 
     public function getName(): ?string
