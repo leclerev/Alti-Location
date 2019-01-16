@@ -14,7 +14,7 @@ class Availability
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id_availability;
+    private $id;
 
     /**
      * @ORM\Column(type="integer")
@@ -26,9 +26,9 @@ class Availability
      */
     private $date;
 
-    public function getIdAvailability(): ?int
+    public function getId(): ?int
     {
-        return $this->id_availability;
+        return $this->id;
     }
 
     public function getIdProperty(): ?int
