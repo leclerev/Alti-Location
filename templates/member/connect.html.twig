@@ -3,15 +3,27 @@
 {% block title %}Connect yourself{% endblock %}
 
 {% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    </style>
+    <form action="/" method="post" style="border: black 2px solid">
+        Connection:<br>
 
-    <div class="example-wrapper">
-        <b>Connection page !<br></b>
-        <input type="text"><br>
-        Parameters : {{ data }}<br>
-        updates comming soon ...
-    </div>
+        <input type="text" placeholder="account name or email adress" name="account" id="account"><br>
+        <input type="password" placeholder="password" name="password" id="password"><br>
+
+        <input type="submit"><br>
+
+    </form>
+
+    <form action="/bob/bb" method="post" style="border: black 2px solid">
+        Create an account:<br>
+
+        <input type="text" placeholder="name" name="name" id="name"><br>
+        <input type="text" placeholder="surname" name="surname" id="surname"><br>
+        <input type="text" placeholder="mail" name="mail" id="mail"><br>
+        <input type="text" placeholder="phone number" name="ph" id="ph"><br>
+        <input type="password" placeholder="password" name="password" id="password"><br>
+        <input type="password" placeholder="confirm password" name="password_confirm" id="password_confirm"><br>
+
+        <input type="submit"><br>
+
+    </form>
 {% endblock %}

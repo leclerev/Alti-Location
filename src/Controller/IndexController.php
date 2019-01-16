@@ -32,8 +32,6 @@ class IndexController extends AbstractController
 //        return new Response('Saved new product with id '.$product->getId()); // return json for data bdd
 
         return $this->render('index/index.html.twig', [
-            'url' => $_SERVER['SERVER_NAME'],
-            'port' => $_SERVER['SERVER_PORT']
         ]);
     }
 }

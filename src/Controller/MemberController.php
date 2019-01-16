@@ -13,7 +13,6 @@ class MemberController extends AbstractController
     public function connect()
     {
         return $this->render('member/connect.html.twig', [
-            'data' => 'je suis fort !'
         ]);
     }
 }
