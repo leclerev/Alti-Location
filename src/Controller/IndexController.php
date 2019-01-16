@@ -14,27 +14,26 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        $entityManager = $this->getDoctrine()->getManager();
+//        $entityManager = $this->getDoctrine()->getManager();
+//
+//        $product = new Member();
+//        $product->setName('Bob');
+//        $product->setSurname('marcel');
+//        $product->setMail('marcel@bbobobobobob.gg');
+//        $product->setPhone('0606060606');
+//        $product->setPassword('vzhnNMOZGNYZONYNPRI');
+//
+//        // tell Doctrine you want to (eventually) save the Product (no queries yet)
+//        $entityManager->persist($product);
+//
+//        // actually executes the queries (i.e. the INSERT query)
+//        $entityManager->flush();
+//
+//        return new Response('Saved new product with id '.$product->getId()); // return json for data bdd
 
-        $product = new Member();
-        $product->setName('Bob');
-        $product->setSurname('marcel');
-        $product->setMail('marcel@bbobobobobob.gg');
-        $product->setPhone('0606060606');
-        $product->setPassword('vzhnNMOZGNYZONYNPRI');
-
-        // tell Doctrine you want to (eventually) save the Product (no queries yet)
-        $entityManager->persist($product);
-
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush();
-
-        return new Response('Saved new product with id '.$product->getId());
-
-//        return $this->render('index/index.html.twig', [
-//            'controller_name' => 'IndexController',
-//            'url' => $_SERVER['SERVER_NAME'],
-//            'port' => $_SERVER['SERVER_PORT']
-//        ]);
+        return $this->render('index/index.html.twig', [
+            'url' => $_SERVER['SERVER_NAME'],
+            'port' => $_SERVER['SERVER_PORT']
+        ]);
     }
 }
