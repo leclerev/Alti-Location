@@ -17,14 +17,16 @@ class Opinion
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Member", inversedBy="opinions")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id_membre;
+    private $author;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Advert", inversedBy="opinions")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id_advert;
+    private $advert;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -32,7 +34,7 @@ class Opinion
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $content;
 
@@ -41,26 +43,26 @@ class Opinion
         return $this->id;
     }
 
-    public function getIdMembre(): ?int
+    public function getAuthor(): ?Member
     {
-        return $this->id_membre;
+        return $this->author;
     }
 
-    public function setIdMembre(int $id_membre): self
+    public function setAuthor(?Member $author): self
     {
-        $this->id_membre = $id_membre;
+        $this->author = $author;
 
         return $this;
     }
 
-    public function getIdAdvert(): ?int
+    public function getAdvert(): ?Advert
     {
-        return $this->id_advert;
+        return $this->advert;
     }
 
-    public function setIdAdvert(int $id_advert): self
+    public function setAdvert(?Advert $advert): self
     {
-        $this->id_advert = $id_advert;
+        $this->advert = $advert;
 
         return $this;
     }

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,14 +19,9 @@ class Property
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity="App\Entity\Availability", mappedBy="property")
      */
-    private $id_member;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_availability;
+    private $availability;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -61,31 +58,54 @@ class Property
      */
     private $pets;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Advert", mappedBy="property", cascade={"persist", "remove"})
+     */
+    private $advert;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Member", inversedBy="property")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $member;
+
+    public function __construct()
+    {
+        $this->availability = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdMember(): ?int
+    /**
+     * @return Collection|Availability[]
+     */
+    public function getAvailability(): Collection
     {
-        return $this->id_member;
+        return $this->availability;
     }
 
-    public function setIdMember(int $id_member): self
+    public function addAvailability(Availability $availability): self
     {
-        $this->id_member = $id_member;
+        if (!$this->availability->contains($availability)) {
+            $this->availability[] = $availability;
+            $availability->setProperty($this);
+        }
 
         return $this;
     }
 
-    public function getIdAvailability(): ?int
+    public function removeAvailability(Availability $availability): self
     {
-        return $this->id_availability;
-    }
-
-    public function setIdAvailability(int $id_availability): self
-    {
-        $this->id_availability = $id_availability;
+        if ($this->availability->contains($availability)) {
+            $this->availability->removeElement($availability);
+            // set the owning side to null (unless already changed)
+            if ($availability->getProperty() === $this) {
+                $availability->setProperty(null);
+            }
+        }
 
         return $this;
     }
@@ -170,6 +190,35 @@ class Property
     public function setPets(bool $pets): self
     {
         $this->pets = $pets;
+
+        return $this;
+    }
+
+    public function getAdvert(): ?Advert
+    {
+        return $this->advert;
+    }
+
+    public function setAdvert(Advert $advert): self
+    {
+        $this->advert = $advert;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $advert->getProperty()) {
+            $advert->setProperty($this);
+        }
+
+        return $this;
+    }
+
+    public function getMember(): ?Member
+    {
+        return $this->member;
+    }
+
+    public function setMember(?Member $member): self
+    {
+        $this->member = $member;
 
         return $this;
     }
