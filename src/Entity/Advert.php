@@ -25,6 +25,8 @@ class Advert
 
     /**
      * @ORM\Column(type="integer")
+     * @ORM\@OneToOne(targetEntity="Member")
+     * @ORM\@JoinColumn(name="id_member", referencedColumnName="id")
      */
     private $id_member;
 
