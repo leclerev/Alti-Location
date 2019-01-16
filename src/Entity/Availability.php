@@ -18,6 +18,7 @@ class Availability
 
     /**
      * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Property", inversedBy="id_availability")
      */
     private $id_property;
 

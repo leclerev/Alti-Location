@@ -23,6 +23,7 @@ class Property
 
     /**
      * @ORM\Column(type="integer")
+     * @ORM\ManyToMany(targetEntity="Availability", inversedBy="id")
      */
     private $id_availability;
 
