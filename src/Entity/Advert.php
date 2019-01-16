@@ -18,14 +18,14 @@ class Advert
 
     /**
      * @ORM\Column(type="integer")
-     * @ORM\@OneToOne(targetEntity="Property")
+     * @ORM\OneToOne(targetEntity="Property")
      */
     private $id_property;
 
     /**
      * @ORM\Column(type="integer")
-     * @ORM\@OneToOne(targetEntity="Member")
-     * @ORM\@JoinColumn(name="id_member", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Member")
+     * @ORM\JoinColumn(name="id_member", referencedColumnName="id")
      */
     private $id_member;
 
