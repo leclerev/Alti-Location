@@ -18,6 +18,7 @@ class Property
 
     /**
      * @ORM\Column(type="integer")
+     * @ORM\ManyToMany(targetEntity="Member", inversedBy="id")
      */
     private $id_member;
 

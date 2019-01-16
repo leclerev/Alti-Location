@@ -13,6 +13,7 @@ class Member
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity="Property", mappedBy="id")
      */
     private $id;
 
