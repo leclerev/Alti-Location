@@ -10,10 +10,10 @@ class MemberController extends AbstractController
     /**
      * @Route("/member", name="member")
      */
-    public function index()
+    public function connect()
     {
-        return $this->render('member/index.html.twig', [
-            'controller_name' => 'MemberController',
+        return $this->render('member/connect.html.twig', [
+            'data' => 'je suis fort !'
         ]);
     }
 }
