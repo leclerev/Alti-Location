@@ -23,6 +23,7 @@ class Opinion
 
     /**
      * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Advert")
      */
     private $id_advert;
 

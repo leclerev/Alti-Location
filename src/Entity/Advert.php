@@ -19,7 +19,6 @@ class Advert
     /**
      * @ORM\Column(type="integer")
      * @ORM\@OneToOne(targetEntity="Property")
-     * @ORM\@JoinColumn(name="id_property", referencedColumnName="id")
      */
     private $id_property;
 
