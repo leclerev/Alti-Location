@@ -16,6 +16,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class MemberController extends AbstractController
 {
     /**
+     * @Route("/connect", name="member_conect", methods={"GET"})
+     */
+    public function connect(MemberRepository $memberRepository): Response
+    {
+        return $this->render('member/connect.html.twig', [
+            'members' => $memberRepository->findAll(),
+        ]);
+    }
+
+    /**
      * @Route("/", name="member_index", methods={"GET"})
      */
     public function index(MemberRepository $memberRepository): Response

@@ -16,6 +16,12 @@
                 <th>Type</th>
                 <th>Smoker</th>
                 <th>Pets</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Price</th>
+                <th>Pay_type</th>
+                <th>Due_date</th>
+                <th>Img_path</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -30,6 +36,12 @@
                 <td>{{ property.type }}</td>
                 <td>{{ property.smoker ? 'Yes' : 'No' }}</td>
                 <td>{{ property.pets ? 'Yes' : 'No' }}</td>
+                <td>{{ property.title }}</td>
+                <td>{{ property.content }}</td>
+                <td>{{ property.price }}</td>
+                <td>{{ property.payType }}</td>
+                <td>{{ property.dueDate }}</td>
+                <td>{{ property.imgPath }}</td>
                 <td>
                     <a href="{{ path('property_show', {'id': property.id}) }}">show</a>
                     <a href="{{ path('property_edit', {'id': property.id}) }}">edit</a>
@@ -37,7 +49,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="9">no records found</td>
+                <td colspan="15">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

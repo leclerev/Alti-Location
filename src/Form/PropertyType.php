@@ -19,8 +19,13 @@ class PropertyType extends AbstractType
             ->add('type')
             ->add('smoker')
             ->add('pets')
-            ->add('advert')
-            ->add('member')
+            ->add('title')
+            ->add('content')
+            ->add('price')
+            ->add('pay_type')
+            ->add('due_date')
+            ->add('img_path')
+            ->add('author')
         ;
     }
 
