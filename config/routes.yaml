@@ -1,11 +1,3 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-
-index:
-    path: /
-    controller: App\Controller\IndexController::index
-
-connect:
-    path: /user/connect
-    controller: App\Controller\MemberController::connect
