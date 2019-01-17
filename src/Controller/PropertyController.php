@@ -15,15 +15,15 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class PropertyController extends AbstractController
 {
-//    /**
-//     * @Route("/", name="property_index", methods={"GET"})
-//     */
-//    public function index(PropertyRepository $propertyRepository): Response
-//    {
-//        return $this->render('property/index.html.twig', [
-//            'properties' => $propertyRepository->findAll(),
-//        ]);
-//    }
+    /**
+     * @Route("/", name="property_index", methods={"GET"})
+     */
+    public function index(PropertyRepository $propertyRepository): Response
+    {
+        return $this->render('property/index.html.twig', [
+            'properties' => $propertyRepository->findAll(),
+        ]);
+    }
 
     /**
      * @Route("/new", name="property_new", methods={"GET","POST"})
