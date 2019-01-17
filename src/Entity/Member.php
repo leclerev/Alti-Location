@@ -48,9 +48,15 @@ class Member
      */
     private $opinions;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Property", mappedBy="author", orphanRemoval=true)
+     */
+    private $properties;
+
     public function __construct()
     {
         $this->opinions = new ArrayCollection();
+        $this->properties = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -143,6 +149,37 @@ class Member
             // set the owning side to null (unless already changed)
             if ($opinion->getAuthor() === $this) {
                 $opinion->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Property[]
+     */
+    public function getProperties(): Collection
+    {
+        return $this->properties;
+    }
+
+    public function addProperty(Property $property): self
+    {
+        if (!$this->properties->contains($property)) {
+            $this->properties[] = $property;
+            $property->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProperty(Property $property): self
+    {
+        if ($this->properties->contains($property)) {
+            $this->properties->removeElement($property);
+            // set the owning side to null (unless already changed)
+            if ($property->getAuthor() === $this) {
+                $property->setAuthor(null);
             }
         }
 

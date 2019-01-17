@@ -21,6 +21,12 @@ class Availability
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Property", inversedBy="availability")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $property;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +40,18 @@ class Availability
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getProperty(): ?Property
+    {
+        return $this->property;
+    }
+
+    public function setProperty(?Property $property): self
+    {
+        $this->property = $property;
 
         return $this;
     }

@@ -32,6 +32,11 @@ class Opinion
      */
     private $content;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Property", inversedBy="opinion")
+     */
+    private $property;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Opinion
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getProperty(): ?Property
+    {
+        return $this->property;
+    }
+
+    public function setProperty(?Property $property): self
+    {
+        $this->property = $property;
 
         return $this;
     }
