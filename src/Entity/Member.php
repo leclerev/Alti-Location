@@ -19,16 +19,6 @@ class Member
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Property", mappedBy="member")
-     */
-    private $property;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Advert", mappedBy="author")
-     */
-    private $advert;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $name;
@@ -60,76 +50,12 @@ class Member
 
     public function __construct()
     {
-        $this->property = new ArrayCollection();
-        $this->advert = new ArrayCollection();
         $this->opinions = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return Collection|Property[]
-     */
-    public function getProperty(): Collection
-    {
-        return $this->property;
-    }
-
-    public function addProperty(Property $property): self
-    {
-        if (!$this->property->contains($property)) {
-            $this->property[] = $property;
-            $property->setMember($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProperty(Property $property): self
-    {
-        if ($this->property->contains($property)) {
-            $this->property->removeElement($property);
-            // set the owning side to null (unless already changed)
-            if ($property->getMember() === $this) {
-                $property->setMember(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Advert[]
-     */
-    public function getAdvert(): Collection
-    {
-        return $this->advert;
-    }
-
-    public function addAdvert(Advert $advert): self
-    {
-        if (!$this->advert->contains($advert)) {
-            $this->advert[] = $advert;
-            $advert->setAuthor($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAdvert(Advert $advert): self
-    {
-        if ($this->advert->contains($advert)) {
-            $this->advert->removeElement($advert);
-            // set the owning side to null (unless already changed)
-            if ($advert->getAuthor() === $this) {
-                $advert->setAuthor(null);
-            }
-        }
-
-        return $this;
     }
 
     public function getName(): ?string
