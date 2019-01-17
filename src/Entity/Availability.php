@@ -23,6 +23,7 @@ class Availability
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Property", inversedBy="availability")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $property;
 
@@ -54,4 +55,5 @@ class Availability
 
         return $this;
     }
+
 }

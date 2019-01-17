@@ -23,12 +23,6 @@ class Opinion
     private $author;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Advert", inversedBy="opinions")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $advert;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $title;
@@ -37,6 +31,11 @@ class Opinion
      * @ORM\Column(type="text")
      */
     private $content;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Property", inversedBy="opinion")
+     */
+    private $property;
 
     public function getId(): ?int
     {
@@ -51,18 +50,6 @@ class Opinion
     public function setAuthor(?Member $author): self
     {
         $this->author = $author;
-
-        return $this;
-    }
-
-    public function getAdvert(): ?Advert
-    {
-        return $this->advert;
-    }
-
-    public function setAdvert(?Advert $advert): self
-    {
-        $this->advert = $advert;
 
         return $this;
     }
@@ -87,6 +74,18 @@ class Opinion
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getProperty(): ?Property
+    {
+        return $this->property;
+    }
+
+    public function setProperty(?Property $property): self
+    {
+        $this->property = $property;
 
         return $this;
     }
