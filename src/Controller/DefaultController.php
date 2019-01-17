@@ -25,6 +25,15 @@ class DefaultController extends AbstractController
         return $this->render('default/colo.html.twig', [
         ]);
     }
+
+    /**
+     * @Route("/navbar", name="navbar")
+     */
+    public function navbar()
+    {
+        return $this->render('default/navbar.html.twig', [
+        ]);
+    }
 }
 
 

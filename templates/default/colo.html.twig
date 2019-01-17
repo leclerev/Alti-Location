@@ -3,21 +3,31 @@
 {% block title %}Hello DefaultController!{% endblock %}
 
 {% block body %}
-<style>
 
-</style>
 
-<div class="example-wrapper">
 
-    <h1>Connect / Register</h1>
-    Connection:<br>
-    <iframe src="/member/connect" width="500" height="500" class="ifr">
+    <div class="Connxion">
 
-    </iframe><br>
+        <h2>Se connecter</h2>
 
-    Create account<br>
-    <iframe src="/member/new" width="500" height="500" class="ifr">
+    </div>
 
-    </iframe>
-</div>
+
+
+    <div class="Create">
+
+        <h2>Créer un compte</h2>
+
+        {{ render(controller('App\\Controller\\MemberController::new')) }}
+
+    </div>
+
+
+
+
+
+
+
+
+
 {% endblock %}
