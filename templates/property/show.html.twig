@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Property{% endblock %}
+
+{% block body %}
+    <h1>Property</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ property.id }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ property.city }}</td>
+            </tr>
+            <tr>
+                <th>Room_count</th>
+                <td>{{ property.roomCount }}</td>
+            </tr>
+            <tr>
+                <th>People_count</th>
+                <td>{{ property.peopleCount }}</td>
+            </tr>
+            <tr>
+                <th>Bed_count</th>
+                <td>{{ property.bedCount }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ property.type }}</td>
+            </tr>
+            <tr>
+                <th>Smoker</th>
+                <td>{{ property.smoker ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Pets</th>
+                <td>{{ property.pets ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ property.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ property.content }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ property.price }}</td>
+            </tr>
+            <tr>
+                <th>Pay_type</th>
+                <td>{{ property.payType }}</td>
+            </tr>
+            <tr>
+                <th>Due_date</th>
+                <td>{{ property.dueDate }}</td>
+            </tr>
+            <tr>
+                <th>Img_path</th>
+                <td>{{ property.imgPath }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('property_index') }}">back to list</a>
+
+    <a href="{{ path('property_edit', {'id': property.id}) }}">edit</a>
+
+    {{ include('property/_delete_form.html.twig') }}
+{% endblock %}
