@@ -91,10 +91,6 @@ class ApiController extends AbstractController
 
         $jsonContent = $serializer->serialize($allProperties, 'json');
 
-// $jsonContent contains {"name":"foo","age":99,"sportsperson":false,"createdAt":null}
-
-        // echo $jsonContent; // or return it in a Response
-
         return $jsonContent;
     }
 
@@ -129,7 +125,7 @@ class ApiController extends AbstractController
     /**
      * @Route("/listOpinions/{id}", name="getOpinionById")
      */
-    public function getOpinionById(int $id,PropertyRepository $propertyRepository)
+    public function getOpinionById(int $id, PropertyRepository $propertyRepository)
     {
         $serializer = $this->initSerializer();
 
