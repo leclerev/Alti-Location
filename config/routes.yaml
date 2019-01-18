@@ -1,7 +1,10 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+<<<<<<< HEAD
 
 index:
     path: /
     controller: App\Controller\DefaultController::index
+=======
+>>>>>>> 73c07545c68c4dd49ad326bf0090bbd98346a6d1

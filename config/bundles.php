@@ -14,5 +14,8 @@ return [
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Symfony\Bundle\WebServerBundle\WebServerBundle::class => ['dev' => true],
+<<<<<<< HEAD
     JMS\SerializerBundle\JMSSerializerBundle::class => ['all' => true],
+=======
+>>>>>>> 73c07545c68c4dd49ad326bf0090bbd98346a6d1
 ];
